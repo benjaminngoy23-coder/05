@@ -1,0 +1,16 @@
+services:
+  fundflow:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      PORT: "8000"
+      DATA_DIR: /app/data
+    expose:
+      - "8000"
+    volumes:
+      - fundflow_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  fundflow_data:
